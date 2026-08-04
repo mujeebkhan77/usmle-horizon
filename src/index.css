@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Core Design Tokens - Clean, Eye-Friendly Light Medical Theme */
+:root {
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Crisp Light Medical Palette */
+  --bg-primary: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F1F5F9;
+  
+  --accent-cyan: #0284C7;
+  --accent-cyan-light: #E0F2FE;
+  --accent-emerald: #059669;
+  --accent-emerald-light: #D1FAE5;
+  --accent-blue: #2563EB;
+  --accent-purple: #7C3AED;
+
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+
+  --border-subtle: #E2E8F0;
+  --border-glow: rgba(2, 132, 199, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Custom Light Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0284C7;
+}
+
+/* Light Glassmorphism & Card Styles */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -5px rgba(15, 23, 42, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-panel-hover:hover {
+  border-color: #38BDF8;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -10px rgba(2, 132, 199, 0.12);
+}
+
+/* Vibrant High-Contrast Text Gradients */
+.text-gradient {
+  background: linear-gradient(135deg, #0F172A 0%, #0369A1 50%, #0284C7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #065F46 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #92400E 0%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Soft Glow Orbs for Light Theme */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-cyan {
+  background: rgba(186, 230, 253, 0.5);
+}
+
+.glow-blue {
+  background: rgba(191, 219, 254, 0.5);
+}
+
+.glow-purple {
+  background: rgba(221, 214, 254, 0.4);
+}
+
+/* Custom Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.25);
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.4);
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
+}
+
+.btn-secondary {
+  background: #FFFFFF;
+  color: #0F172A;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background: #F8FAFC;
+  border-color: #94A3B8;
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.25);
+  border: none;
+  cursor: pointer;
+}
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4);
+  background: linear-gradient(135deg, #047857 0%, #065F46 100%);
+}
+
+/* Light Theme Badges */
+.badge-cyan {
+  background: #E0F2FE;
+  color: #0369A1;
+  border: 1px solid #7DD3FC;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.badge-emerald {
+  background: #D1FAE5;
+  color: #047857;
+  border: 1px solid #6EE7B7;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.badge-gold {
+  background: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FCD34D;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
