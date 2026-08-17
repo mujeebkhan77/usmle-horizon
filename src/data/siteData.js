@@ -55,30 +55,44 @@ export const PROOF_IMAGES = [
 
 export const IMD_RESOURCES_LIST = [
   {
-    name: "UWorld QBank 2025/2026",
+    name: "UWorld",
     category: "QBank",
     exam: "USMLE Step 1 & Step 2 CK",
     description: "Complete updated question bank with detailed explanations, charts, and clinical images.",
     popular: true
   },
   {
-    name: "USMLE-Rx QBank & Express Videos",
+    name: "AMBOSS",
     category: "QBank",
-    exam: "USMLE Step 1",
+    exam: "USMLE Step 1 & Step 2 CK",
+    description: "Interactive clinical database, high-yield learning cards, and exam-simulated QBanks.",
+    popular: true
+  },
+  {
+    name: "USMLE-Rx",
+    category: "QBank",
+    exam: "USMLE Step 1 & Step 2 CK",
     description: "First Aid integrated question bank, flashcards, and high-yield video lectures.",
     popular: false
   },
   {
-    name: "Amboss QBank & Medical Library",
-    category: "QBank",
-    exam: "USMLE Step 1, Step 2 CK, Step 3",
-    description: "Interactive clinical database, high-yield learning cards, and exam-simulated QBanks.",
+    name: "Mehlman Medical — PDFs & Resources",
+    category: "PDFs & Notes",
+    exam: "USMLE Step 1 & Step 2 CK",
+    description: "High-yield pathology, internal medicine, and clerkship revision audio/PDF files for Step 1 & Step 2 CK.",
+    popular: true
+  },
+  {
+    name: "USMLE Bootcamp Prep & Video Series",
+    category: "QBank & Videos",
+    exam: "USMLE Step 1",
+    description: "High-yield bite-sized video lectures, comprehensive Step 1 question banks, and interactive anatomy tagging.",
     popular: true
   },
   {
     name: "Boards & Beyond (B&B) Video Series",
     category: "Video Lectures",
-    exam: "USMLE Step 1 & Step 2 CK",
+    exam: "USMLE Step 1",
     description: "Dr. Jason Ryan's comprehensive clinical lectures and companion slide PDFs.",
     popular: true
   },
@@ -92,22 +106,43 @@ export const IMD_RESOURCES_LIST = [
   {
     name: "Kaplan Medical Masterclass Series",
     category: "Video Lectures",
-    exam: "USMLE Step 1 & Step 2 CK",
+    exam: "USMLE Step 1",
     description: "Full clinical subject reviews by leading US medical faculty.",
     popular: false
   },
   {
     name: "SketchyMedical (Micro & Pharm)",
     category: "Visual Memory",
-    exam: "USMLE Step 1 & Step 2 CK",
+    exam: "USMLE Step 1",
     description: "High-yield mnemonic memory scenes for Microbiology, Pharmacology, and Internal Medicine.",
     popular: true
   },
   {
-    name: "PLAB 1 & 2 QBank Hub (Plabable / Samson)",
+    name: "PassMedicine",
     category: "QBank",
     exam: "PLAB (UK)",
-    description: "UK NHS clinical guideline questions, mock exams, and OSCE station guides.",
+    description: "High-yield PLAB 1 & 2 question bank, NHS guideline revisions, knowledge notes, and exam mock modes.",
+    popular: true
+  },
+  {
+    name: "PassTest",
+    category: "QBank",
+    exam: "PLAB (UK)",
+    description: "Comprehensive UK medical licensing question bank, clinical recall questions, and detailed explanations.",
+    popular: false
+  },
+  {
+    name: "MRCP QBank",
+    category: "QBank",
+    exam: "PLAB (UK)",
+    description: "Membership of the Royal Colleges of Physicians question bank, specialty modules, and clinical case scenarios.",
+    popular: true
+  },
+  {
+    name: "MRCS QBank",
+    category: "QBank",
+    exam: "PLAB (UK)",
+    description: "Membership of the Royal College of Surgeons question bank, surgical anatomy, and clinical OSCE revision.",
     popular: false
   },
   {
@@ -115,6 +150,27 @@ export const IMD_RESOURCES_LIST = [
     category: "QBank",
     exam: "AMC (Australia)",
     description: "Australian Medical Council MCQ study packages and clinical recall questions.",
+    popular: false
+  },
+  {
+    name: "AMEDEX",
+    category: "QBank",
+    exam: "AMC (Australia)",
+    description: "Official Australian Medical Council exam preparation database, MCQ trial exams, and clinical recall questions.",
+    popular: true
+  },
+  {
+    name: "MplusX",
+    category: "QBank & Clinical",
+    exam: "AMC (Australia)",
+    description: "Comprehensive AMC MCQ and clinical exam preparation platform with high-yield case studies.",
+    popular: true
+  },
+  {
+    name: "eMedici",
+    category: "QBank & Library",
+    exam: "AMC (Australia)",
+    description: "Australian clinical case library, interactive medical questions, and AMC examination practice modules.",
     popular: false
   }
 ];
@@ -224,6 +280,40 @@ export const IMD_PLANS = [
     ],
     highlight: true,
     ctaText: "Select VIP iMD"
+  }
+];
+
+export const STEPWISE_DURATIONS = [
+  { id: "6m", label: "6 Months Access", badge: "Rapid Revision" },
+  { id: "12m", label: "12 Months (1 Year)", badge: "Most Popular", default: true },
+  { id: "2y", label: "2 Years (24 Months)", badge: "Complete Prep Saver" }
+];
+
+export const STEPWISE_PLANS = [
+  {
+    name: "StepWiseMD Basic Plan",
+    tagline: "Simple & Accessible Core Question Bank Access",
+    features: [
+      "Core StepWiseMD Question Bank & High-Yield Explanations",
+      "Web Version Also Available (Browser & Mobile)",
+      "Essential Practice Tests & Performance Analytics",
+      "Standard WhatsApp Technical Support"
+    ],
+    highlight: false,
+    ctaText: "Select StepWiseMD Basic"
+  },
+  {
+    name: "StepWiseMD VIP Pro Plan",
+    tagline: "Complete StepWiseMD Suite with Full High-Yield Resources",
+    features: [
+      "Full StepWiseMD QBank & Comprehensive Explanations",
+      "Web Version Also Available + Multi-Device App Sync",
+      "Interactive High-Yield Flashcards & Clinical Cases",
+      "24/7 Priority Support & Update Assistance",
+      "Free 2025/2026 Content Updates Included"
+    ],
+    highlight: true,
+    ctaText: "Select StepWiseMD VIP"
   }
 ];
 

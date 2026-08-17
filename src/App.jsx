@@ -3,16 +3,18 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import ImdResources from './components/ImdResources';
 import ResearchMentorship from './components/ResearchMentorship';
+import PubmedOpportunities from './components/PubmedOpportunities';
 import ExamTracks from './components/ExamTracks';
 import ScoreCalculator from './components/ScoreCalculator';
 import PricingRegistration from './components/PricingRegistration';
-import ProofGallery from './components/ProofGallery';
+import StepwisePricing from './components/StepwisePricing';
+import ClinicalRotations from './components/ClinicalRotations';
 import FaqSection from './components/FaqSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
 import { CONTACT_LINKS } from './data/siteData';
-import { MessageSquare, Sparkles } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
 
 export default function App() {
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
@@ -40,8 +42,11 @@ export default function App() {
         {/* iMD Medical Resources & QBank Hub */}
         <ImdResources onOpenRegisterModal={() => handleOpenRegisterModal('iMD Basic Access')} />
 
-        {/* Research Mentorship Program */}
+        {/* Medical Research Mentorship — From Scratch to Match */}
         <ResearchMentorship onOpenRegisterModal={() => handleOpenRegisterModal('Research Mentorship Scratch to Match')} />
+
+        {/* PUBMED RESEARCH OPPORTUNITIES (Static Gallery) */}
+        <PubmedOpportunities />
 
         {/* International Exam Prep Tracks */}
         <ExamTracks onOpenRegisterModal={() => handleOpenRegisterModal('USMLE Tutoring Prep')} />
@@ -49,15 +54,22 @@ export default function App() {
         {/* Score Predictor Calculator */}
         <ScoreCalculator onOpenRegisterModal={() => handleOpenRegisterModal('VIP Premium Plan')} />
 
-        {/* Pricing & VIP Registration Plans */}
+        {/* Pricing & VIP Registration Plans (iMD) */}
         <PricingRegistration 
           isModalOpen={isRegisterModalOpen} 
           onCloseModal={handleCloseRegisterModal}
           selectedPlanName={selectedPlanName}
         />
 
-        {/* Student Success & Publication Proofs */}
-        <ProofGallery />
+        {/* StepWiseMD Plan & Duration */}
+        <StepwisePricing 
+          onOpenRegisterModal={(planName) => handleOpenRegisterModal(planName)}
+        />
+
+        {/* Global Clinical Rotations (Replaces Student Achievements & PubMed Acceptances in exact same position) */}
+        <ClinicalRotations 
+          onOpenRegisterModal={(planName) => handleOpenRegisterModal(planName)}
+        />
 
         {/* FAQ Section */}
         <FaqSection />

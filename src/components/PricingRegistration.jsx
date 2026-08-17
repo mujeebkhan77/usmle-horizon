@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IMD_PLANS, IMD_DURATIONS } from '../data/siteData';
-import { Check, ShieldCheck, Zap, MessageCircle, X, Sparkles, Send, User, Mail, Key, Clock, Calendar, BookOpen } from 'lucide-react';
+import { Check, ShieldCheck, Zap, MessageCircle, X, Sparkles, Send, User, Mail, Key, Clock, Calendar, BookOpen, Globe } from 'lucide-react';
 
 export default function PricingRegistration({ isModalOpen, onCloseModal, selectedPlanName }) {
   const [activeDuration, setActiveDuration] = useState('12m'); // default 12 Months
@@ -48,9 +48,17 @@ Please send me the price details and payment instructions so I can finalize my s
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
-          <div className="badge-emerald inline-flex items-center gap-1.5">
-            <Zap className="w-3.5 h-3.5" />
-            <span>iMD Subscription & Access Duration</span>
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-2">
+            <div className="badge-emerald inline-flex items-center gap-1.5">
+              <Zap className="w-3.5 h-3.5" />
+              <span>iMD Subscription & Access Duration</span>
+            </div>
+
+            {/* Web Version Also Available Badge */}
+            <div className="bg-sky-50 text-sky-800 border border-sky-200 text-xs font-bold px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5 shadow-sm">
+              <Globe className="w-3.5 h-3.5 text-sky-600" />
+              <span>Web Version Also Available</span>
+            </div>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">

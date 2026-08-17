@@ -11,7 +11,22 @@ export default function ImdResources({ onOpenRegisterModal }) {
   const filteredResources = IMD_RESOURCES_LIST.filter(item => {
     const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           item.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesExam = selectedExam === 'All' || item.exam.includes(selectedExam);
+    
+    let matchesExam = false;
+    if (selectedExam === 'All') {
+      matchesExam = true;
+    } else if (selectedExam.includes('Step 2')) {
+      matchesExam = item.exam.includes('Step 2');
+    } else if (selectedExam.includes('Step 1')) {
+      matchesExam = item.exam.includes('Step 1');
+    } else if (selectedExam.includes('PLAB')) {
+      matchesExam = item.exam.includes('PLAB');
+    } else if (selectedExam.includes('AMC')) {
+      matchesExam = item.exam.includes('AMC');
+    } else {
+      matchesExam = item.exam.includes(selectedExam);
+    }
+
     return matchesSearch && matchesExam;
   });
 
@@ -41,7 +56,7 @@ export default function ImdResources({ onOpenRegisterModal }) {
             <Search className="w-5 h-5 text-slate-400 absolute left-4 top-3.5" />
             <input 
               type="text"
-              placeholder="Search QBanks (UWorld, Amboss), video series (B&B, Pathoma, Sketchy)..."
+              placeholder="Search QBanks (UWorld, Amboss, Bootcamp), video series (B&B, Pathoma, Sketchy)..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full bg-slate-50 border border-slate-200 focus:border-sky-500 rounded-full pl-12 pr-4 py-3.5 text-sm text-slate-900 placeholder-slate-400 outline-none transition shadow-sm"
