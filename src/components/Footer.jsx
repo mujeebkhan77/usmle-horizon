@@ -2,9 +2,35 @@ import React from 'react';
 import { SITE_INFO, CONTACT_LINKS } from '../data/siteData';
 import { ArrowUp } from 'lucide-react';
 
-export default function Footer() {
+export default function Footer({ onNavigate, currentPath = '/' }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleLinkClick = (e, href, isAmbassador = false) => {
+    if (isAmbassador) {
+      e.preventDefault();
+      if (onNavigate) {
+        onNavigate('/ambassador');
+      } else {
+        window.history.pushState({}, '', '/ambassador');
+        window.dispatchEvent(new Event('popstate'));
+      }
+      return;
+    }
+
+    if (currentPath === '/ambassador') {
+      e.preventDefault();
+      if (onNavigate) {
+        onNavigate('/');
+        setTimeout(() => {
+          if (href.startsWith('#')) {
+            const el = document.querySelector(href);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 150);
+      }
+    }
   };
 
   return (
@@ -30,11 +56,12 @@ export default function Footer() {
           <div className="md:col-span-3 space-y-3">
             <h4 className="font-bold text-white text-sm uppercase tracking-wider font-heading">Platform Links</h4>
             <ul className="space-y-2 font-medium">
-              <li><a href="#resources" className="hover:text-sky-400 transition">iMD QBank & Lecture Hub</a></li>
-              <li><a href="#research" className="hover:text-sky-400 transition">Research Mentorship Program</a></li>
-              <li><a href="#exams" className="hover:text-sky-400 transition">USMLE / PLAB / AMC Exam Prep</a></li>
-              <li><a href="#pricing" className="hover:text-sky-400 transition">VIP Access & Duration Plans</a></li>
-              <li><a href="#proofs" className="hover:text-sky-400 transition">Student Proof Gallery</a></li>
+              <li><a href="#resources" onClick={(e) => handleLinkClick(e, '#resources')} className="hover:text-sky-400 transition">iMD QBank & Lecture Hub</a></li>
+              <li><a href="#pubmed-opportunities" onClick={(e) => handleLinkClick(e, '#pubmed-opportunities')} className="hover:text-sky-400 transition">Medical Research Opportunities</a></li>
+              <li><a href="#exams" onClick={(e) => handleLinkClick(e, '#exams')} className="hover:text-sky-400 transition">USMLE / PLAB / AMC Exam Prep</a></li>
+              <li><a href="#clinical-rotations" onClick={(e) => handleLinkClick(e, '#clinical-rotations')} className="hover:text-sky-400 transition">Global Clinical Rotations</a></li>
+              <li><a href="#pricing" onClick={(e) => handleLinkClick(e, '#pricing')} className="hover:text-sky-400 transition">VIP Access & Plans</a></li>
+              <li><a href="/ambassador" onClick={(e) => handleLinkClick(e, '/ambassador', true)} className="hover:text-sky-400 transition text-sky-400 font-bold">Become an Ambassador</a></li>
             </ul>
           </div>
 

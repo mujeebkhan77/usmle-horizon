@@ -239,12 +239,12 @@ export default function ClinicalRotations({ onOpenRegisterModal }) {
           </div>
         </div>
 
-        {/* 5. Medical Student Rotation VS Other Agencies (Landscape Comparison Section) */}
+        {/* 5. The USMLE Horizon VS Other Agencies (Landscape Comparison Section) */}
         <div className="space-y-6 pt-4">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-extrabold text-sky-700 uppercase tracking-widest">Why Choose Us</span>
             <h3 className="text-3xl font-black text-slate-900 font-heading">
-              Medical Student Rotation vs. Other Agencies
+              The USMLE Horizon vs Other Agencies
             </h3>
             <p className="text-xs text-slate-600">
               Clear, transparent comparison between authentic hospital-based rotations and generic agency placements.
@@ -253,7 +253,7 @@ export default function ClinicalRotations({ onOpenRegisterModal }) {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
             
-            {/* Side A: Medical Student Rotation (The Better Choice) */}
+            {/* Side A: The USMLE Horizon (The Better Choice) */}
             <div className="p-8 rounded-3xl bg-white border-2 border-emerald-500 shadow-xl shadow-emerald-500/10 space-y-6 flex flex-col justify-between relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-emerald-500 text-white font-extrabold text-[10px] uppercase px-4 py-1 rounded-bl-xl tracking-wider shadow">
                 ⭐️ The Better Choice
@@ -261,7 +261,7 @@ export default function ClinicalRotations({ onOpenRegisterModal }) {
 
               <div className="space-y-4">
                 <div>
-                  <h4 className="text-2xl font-black text-slate-900 font-heading">Medical Student Rotation</h4>
+                  <h4 className="text-2xl font-black text-slate-900 font-heading">The USMLE Horizon</h4>
                   <p className="text-xs text-emerald-700 font-bold mt-1">Hospital-based, IMG-first, built for your match success.</p>
                 </div>
 

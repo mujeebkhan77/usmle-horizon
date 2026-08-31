@@ -28,27 +28,27 @@ export const CONTACT_LINKS = {
 export const PROOF_IMAGES = [
   {
     url: "https://i.postimg.cc/Bt9Zxyk1/IMG-20250729-WA0030.jpg",
-    title: "Meta-Analysis PubMed Acceptance",
+    title: "PubMed Research Opportunity",
     category: "Research Mentorship"
   },
   {
     url: "https://i.postimg.cc/FFfjVLw9/IMG-20250729-WA0028.jpg",
-    title: "High Step 2 CK Score Verification",
+    title: "Google Scholar Opportunity",
     category: "USMLE Prep"
   },
   {
     url: "https://i.postimg.cc/Xqy7B3Hb/IMG-20250729-WA0027.jpg",
-    title: "Systematic Review Journal Indexing",
+    title: "Embase Opportunity",
     category: "Research Mentorship"
   },
   {
     url: "https://i.postimg.cc/8kqLKCVL/IMG-20250729-WA0029.jpg",
-    title: "Student ECFMG Certification Success",
+    title: "Elsevier Scopus Opportunity",
     category: "Match Mentorship"
   },
   {
     url: "https://i.postimg.cc/3wHLPB5C/Whats-App-Image-2025-07-29-at-22-19-43-acc37809.jpg",
-    title: "iMD Resource Portal Access & QBank Setup",
+    title: "Fortune Journal Opportunity",
     category: "iMD Resources"
   }
 ];

@@ -4,7 +4,7 @@ import { ArrowRight, MessageCircle, Laptop, ShieldCheck, BookOpen, Stethoscope, 
 
 export default function Hero({ onOpenRegisterModal }) {
   return (
-    <section className="relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-slate-50 text-slate-900 border-b border-slate-100">
+    <section id="hero" className="relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-slate-50 text-slate-900 border-b border-slate-100">
       
       {/* Full-Width, Full-Height Subtle Background Atmosphere */}
       <div 

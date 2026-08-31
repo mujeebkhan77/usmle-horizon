@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
 import { PROOF_IMAGES } from '../data/siteData';
-import { BookOpen, X, Maximize2 } from 'lucide-react';
+import { BookOpen, X } from 'lucide-react';
 
 export default function PubmedOpportunities() {
   const [selectedImage, setSelectedImage] = useState(null);
+
+  const descriptionBlocks = [
+    "We have multiple ongoing Research Articles covering Case reports, Cross sectional studies, Systemic reviews and Meta Analysis.",
+    "These high yield Paid articles are already written by our professional PhD team.",
+    "All the work of these articles have been completed & you have nothing to do except booking the slot.",
+    "You will be added in a group with other authors when all the slots are filled.",
+    "Manuscript of the article will be shared with you people there so that you can present anywhere you want.",
+    "Your account will be created in PubMed journal.",
+    "Main author & the coordinators will guide you throughout the whole process till they are published."
+  ];
 
   return (
     <section id="pubmed-opportunities" className="py-16 relative bg-slate-50 border-t border-b border-slate-100">
@@ -13,17 +23,31 @@ export default function PubmedOpportunities() {
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sky-100/80 border border-sky-200 text-sky-800 text-xs font-bold shadow-sm">
             <BookOpen className="w-3.5 h-3.5 text-sky-600" />
-            <span>PubMed & Publication Showcase</span>
+            <span>Medical Research Showcase</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 font-heading tracking-tight">
-            PUBMED RESEARCH <span className="text-gradient">OPPORTUNITIES</span>
+            MEDICAL RESEARCH <span className="text-gradient">OPPORTUNITIES</span>
           </h2>
-          <p className="text-slate-600 text-sm max-w-2xl mx-auto">
-            Visual showcase of research opportunities, systematic reviews, and PubMed publication achievements provided through our mentorship. Click any image to view full-size.
-          </p>
         </div>
 
-        {/* Clean Clickable Visual Image Gallery */}
+        {/* Formatted Scannable Description Blocks */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-12">
+          {descriptionBlocks.map((blockText, idx) => (
+            <div 
+              key={idx}
+              className={`p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-start gap-3 ${
+                idx === descriptionBlocks.length - 1 ? 'md:col-span-2' : ''
+              }`}
+            >
+              <div className="w-2 h-2 rounded-full bg-sky-500 mt-2 shrink-0" />
+              <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                {blockText}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Clean Clickable Visual Image Gallery (IMAGE + IMAGE NAME ONLY) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {PROOF_IMAGES.map((img, idx) => (
             <div 
@@ -37,16 +61,9 @@ export default function PubmedOpportunities() {
                   alt={img.title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                 />
-                <div className="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                  <span className="bg-white/95 backdrop-blur text-slate-900 text-xs font-bold py-2 px-4 rounded-full shadow-lg flex items-center gap-1.5 border border-slate-200">
-                    <Maximize2 className="w-4 h-4 text-sky-600" />
-                    <span>View Full Image</span>
-                  </span>
-                </div>
               </div>
 
-              <div className="p-4 space-y-1 bg-white border-t border-slate-100">
-                <span className="text-[10px] font-bold text-sky-600 uppercase tracking-widest">{img.category}</span>
+              <div className="p-3.5 bg-white text-center border-t border-slate-100">
                 <h3 className="font-bold text-slate-900 text-sm font-heading">{img.title}</h3>
               </div>
             </div>
@@ -55,7 +72,7 @@ export default function PubmedOpportunities() {
 
       </div>
 
-      {/* Clean Full-Size Lightbox Modal Overlay (NO External Links) */}
+      {/* Clean Full-Size Lightbox Modal Overlay (IMAGE + IMAGE NAME ONLY) */}
       {selectedImage && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-md animate-in fade-in"
@@ -81,11 +98,8 @@ export default function PubmedOpportunities() {
               />
             </div>
 
-            <div className="px-2 pt-1 flex items-center justify-between">
-              <div>
-                <span className="text-xs text-sky-600 font-bold uppercase tracking-widest">{selectedImage.category}</span>
-                <h4 className="text-base font-bold text-slate-900 font-heading">{selectedImage.title}</h4>
-              </div>
+            <div className="px-2 pt-1 text-center">
+              <h4 className="text-base font-bold text-slate-900 font-heading">{selectedImage.title}</h4>
             </div>
           </div>
         </div>
