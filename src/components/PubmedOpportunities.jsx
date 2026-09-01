@@ -23,7 +23,7 @@ export default function PubmedOpportunities() {
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sky-100/80 border border-sky-200 text-sky-800 text-xs font-bold shadow-sm">
             <BookOpen className="w-3.5 h-3.5 text-sky-600" />
-            <span>Medical Research Showcase</span>
+            <span>Medical Research OPPURTUNITIES</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 font-heading tracking-tight">
             MEDICAL RESEARCH <span className="text-gradient">OPPORTUNITIES</span>
@@ -55,11 +55,11 @@ export default function PubmedOpportunities() {
               onClick={() => setSelectedImage(img)}
               className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-sky-300 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer group flex flex-col justify-between"
             >
-              <div className="h-64 overflow-hidden bg-slate-100 relative">
+              <div className="h-64 overflow-hidden bg-slate-100 relative flex items-center justify-center p-2">
                 <img 
                   src={img.url} 
-                  alt={img.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  alt={`${img.title} - Medical Research Publication`} 
+                  className="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500 rounded-lg"
                 />
               </div>
 
@@ -93,7 +93,7 @@ export default function PubmedOpportunities() {
             <div className="p-2 bg-slate-50 rounded-2xl max-h-[82vh] overflow-auto flex items-center justify-center border border-slate-200">
               <img 
                 src={selectedImage.url} 
-                alt={selectedImage.title} 
+                alt={`${selectedImage.title} - Full View`} 
                 className="max-h-[78vh] w-auto h-auto rounded-xl object-contain" 
               />
             </div>

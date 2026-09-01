@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Host
+Host: https://usmle-horizon.vercel.app
+
+# Sitemaps
+Sitemap: https://usmle-horizon.vercel.app/sitemap.xml

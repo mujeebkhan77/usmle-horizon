@@ -13,7 +13,7 @@ export default function AmbassadorBannerCTA({ onNavigate }) {
   };
 
   return (
-    <section className="py-10 bg-slate-50 border-t border-b border-slate-200/80 relative overflow-hidden">
+    <section id="ambassador-cta" className="py-10 bg-slate-50 border-t border-b border-slate-200/80 relative overflow-hidden">
       
       {/* Soft Background Accent Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[180px] bg-sky-200/25 rounded-full blur-[90px] pointer-events-none z-0" />

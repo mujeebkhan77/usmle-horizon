@@ -35,7 +35,7 @@ export default function ExamTracks({ onOpenRegisterModal }) {
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'
               }`}
             >
-              <img src={track.flag} alt={track.name} className="w-4 h-3 object-cover rounded-sm" />
+              <img src={track.flag} alt={`${track.name} licensing flag`} className="w-4 h-3 object-cover rounded-sm" />
               <span>{track.code} ({track.name.split(' ')[0]})</span>
             </button>
           ))}
@@ -45,7 +45,7 @@ export default function ExamTracks({ onOpenRegisterModal }) {
         <div className="glass-panel p-8 rounded-3xl border border-sky-200 max-w-4xl mx-auto bg-white shadow-lg">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-100">
             <div className="flex items-center gap-4 text-center md:text-left">
-              <img src={activeTrack.flag} alt={activeTrack.name} className="w-12 h-9 object-cover rounded shadow" />
+              <img src={activeTrack.flag} alt={`${activeTrack.name} official flag`} className="w-12 h-9 object-cover rounded shadow" />
               <div>
                 <span className="text-xs font-bold text-sky-600 uppercase tracking-widest">{activeTrack.code} Pathway</span>
                 <h3 className="text-2xl font-bold text-slate-900 font-heading">{activeTrack.name}</h3>

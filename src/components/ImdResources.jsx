@@ -42,10 +42,10 @@ export default function ImdResources({ onOpenRegisterModal }) {
             <span>World's Largest Medical Resource Hub</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-            Access 45,000+ to 50,000+ <span className="text-gradient">QBanks & Lectures</span>
+            The USMLE Horizon provides <span className="text-gradient">50k+ Medical Resources, QBanks and Lectures</span>
           </h2>
           <p className="text-slate-600 text-base">
-            Switch between your laptop, tablet, and mobile phone seamlessly. All resources are updated to the <b>2025/2026 examination blueprints</b>.
+            The USMLE Horizon provides premium level medical resources, at much lower cost for all the international exams in updated form.
           </p>
         </div>
 

@@ -76,7 +76,7 @@ export default function ClinicalRotations({ onOpenRegisterModal }) {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
-            Global Clinical <span className="text-gradient">Rotations</span>
+            US Clinical <span className="text-gradient">Rotations</span>
           </h2>
 
           {/* Prominent Hospital-Based Inpatient Highlight Box */}
@@ -240,7 +240,7 @@ export default function ClinicalRotations({ onOpenRegisterModal }) {
         </div>
 
         {/* 5. The USMLE Horizon VS Other Agencies (Landscape Comparison Section) */}
-        <div className="space-y-6 pt-4">
+        <div id="why-choose-us" className="space-y-6 pt-4">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-extrabold text-sky-700 uppercase tracking-widest">Why Choose Us</span>
             <h3 className="text-3xl font-black text-slate-900 font-heading">
@@ -351,7 +351,7 @@ export default function ClinicalRotations({ onOpenRegisterModal }) {
         </div>
 
         {/* 6. Final CTA */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-sky-600 via-sky-700 to-emerald-600 text-white shadow-xl max-w-4xl mx-auto text-center space-y-6 relative overflow-hidden">
+        <div id="visa-assistance" className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-sky-600 via-sky-700 to-emerald-600 text-white shadow-xl max-w-4xl mx-auto text-center space-y-6 relative overflow-hidden">
           
           <div className="space-y-3 max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-extrabold px-3.5 py-1 rounded-full backdrop-blur shadow-sm">

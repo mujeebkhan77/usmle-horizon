@@ -9,12 +9,17 @@ import {
   MoreVertical, 
   Home, 
   BookOpen, 
+  Globe,
+  Calculator,
   Database, 
   Zap, 
-  Globe, 
+  Award,
+  BookCheck,
   Stethoscope, 
   Building2,
-  Users
+  HeartHandshake,
+  Users,
+  HelpCircle
 } from 'lucide-react';
 
 export default function Header({ onOpenRegisterModal, onNavigate, currentPath = '/' }) {
@@ -31,6 +36,9 @@ export default function Header({ onOpenRegisterModal, onNavigate, currentPath = 
   }, []);
 
   const handleNavClick = (e, href, isAmbassador = false) => {
+    setQuickAccessOpen(false);
+    setMobileMenuOpen(false);
+
     if (isAmbassador) {
       e.preventDefault();
       if (onNavigate) {
@@ -39,12 +47,10 @@ export default function Header({ onOpenRegisterModal, onNavigate, currentPath = 
         window.history.pushState({}, '', '/ambassador');
         window.dispatchEvent(new Event('popstate'));
       }
-      setQuickAccessOpen(false);
-      setMobileMenuOpen(false);
       return;
     }
 
-    if (currentPath === '/ambassador') {
+    if (currentPath === '/ambassador' || (typeof window !== 'undefined' && window.location.pathname.startsWith('/ambassador'))) {
       e.preventDefault();
       if (onNavigate) {
         onNavigate('/');
@@ -55,22 +61,27 @@ export default function Header({ onOpenRegisterModal, onNavigate, currentPath = 
           }
         }, 150);
       }
-      setQuickAccessOpen(false);
-      setMobileMenuOpen(false);
+      return;
+    }
+
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const el = document.querySelector(href);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
   const quickAccessItems = [
-    { label: 'Home', href: '#hero', icon: Home, badge: null, isAmbassador: false },
-    { label: 'USMLE Resources', href: '#resources', icon: BookOpen, badge: null, isAmbassador: false },
-    { label: 'iMD', href: '#pricing', icon: Database, badge: 'iMD Hub', isAmbassador: false },
-    { label: 'StepWiseMD', href: '#stepwise-pricing', icon: Zap, badge: 'StepWise', isAmbassador: false },
-    { label: 'PLAB / UK Resources', href: '#exams', icon: Globe, badge: 'UK', isAmbassador: false },
-    { label: 'AMC Resources', href: '#exams', icon: Globe, badge: 'AUS', isAmbassador: false },
-    { label: 'Medical Research Opportunities', href: '#pubmed-opportunities', icon: Stethoscope, badge: 'Research', isAmbassador: false },
-    { label: 'Global Clinical Rotations', href: '#clinical-rotations', icon: Building2, badge: 'USCE', isAmbassador: false },
-    { label: 'Become an Ambassador', href: '/ambassador', icon: Users, badge: 'Join Us', isAmbassador: true },
-    { label: 'Contact / WhatsApp', href: '#contact', icon: MessageSquare, badge: '24/7', isAmbassador: false }
+    { label: 'Home', href: '#hero', icon: Home, isAmbassador: false },
+    { label: 'iMD', href: '#pricing', icon: Database, isAmbassador: false },
+    { label: 'StepWiseMD', href: '#stepwise-pricing', icon: Zap, isAmbassador: false },
+    { label: 'Medical Research', href: '#research', icon: BookOpen, isAmbassador: false },
+    { label: 'Clinical Rotations', href: '#clinical-rotations', icon: Building2, isAmbassador: false },
+    { label: 'Become an Ambassador', href: '/ambassador', icon: Users, isAmbassador: true },
+    { label: 'FAQ', href: '#faq', icon: HelpCircle, isAmbassador: false },
+    { label: 'Connect with Abdullah', href: '#contact', icon: MessageSquare, isAmbassador: false }
   ];
 
   return (
@@ -90,7 +101,7 @@ export default function Header({ onOpenRegisterModal, onNavigate, currentPath = 
               <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 to-emerald-400 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-300"></div>
               <img 
                 src={SITE_INFO.logo} 
-                alt={SITE_INFO.name} 
+                alt="The USMLE Horizon logo" 
                 className="relative w-10 h-10 rounded-full object-cover border-2 border-sky-500 shadow-md"
               />
             </div>
@@ -161,30 +172,23 @@ export default function Header({ onOpenRegisterModal, onNavigate, currentPath = 
               {/* 3-Dots Dropdown Menu */}
               {quickAccessOpen && (
                 <div 
-                  className="absolute right-0 mt-3 w-72 bg-white rounded-2xl border border-slate-200 shadow-2xl py-3 px-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+                  className="absolute right-0 mt-3 w-56 bg-white rounded-2xl border border-slate-200 shadow-2xl py-2 px-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200"
                 >
-                  <div className="px-3 py-2 border-b border-slate-100 mb-1 flex items-center justify-between">
-                    <span className="text-xs font-black text-slate-900 font-heading uppercase tracking-wider">Quick Access Menu</span>
-                    <span className="text-[10px] font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded-full border border-sky-100">Horizon</span>
+                  <div className="px-3 py-1.5 border-b border-slate-100 mb-1 flex items-center justify-between">
+                    <span className="text-[11px] font-black text-slate-900 font-heading uppercase tracking-wider">Quick Access</span>
+                    <span className="text-[10px] font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded-full border border-sky-100">Menu</span>
                   </div>
 
-                  <div className="space-y-0.5 max-h-[75vh] overflow-y-auto">
+                  <div className="space-y-0.5 max-h-[70vh] overflow-y-auto">
                     {quickAccessItems.map((item, idx) => (
                       <a 
                         key={idx}
                         href={item.href}
                         onClick={(e) => handleNavClick(e, item.href, item.isAmbassador)}
-                        className="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-sky-50 text-slate-700 hover:text-sky-600 transition group"
+                        className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-sky-50 text-slate-700 hover:text-sky-600 font-bold text-xs transition group"
                       >
-                        <div className="flex items-center gap-2.5">
-                          <item.icon className="w-4 h-4 text-slate-400 group-hover:text-sky-600 transition" />
-                          <span className="text-xs font-bold">{item.label}</span>
-                        </div>
-                        {item.badge && (
-                          <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 group-hover:bg-sky-100 group-hover:text-sky-700 group-hover:border-sky-200 transition">
-                            {item.badge}
-                          </span>
-                        )}
+                        <item.icon className="w-4 h-4 text-slate-400 group-hover:text-sky-600 transition shrink-0" />
+                        <span>{item.label}</span>
                       </a>
                     ))}
                   </div>

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import GlobalTextMarquee from './GlobalTextMarquee';
@@ -32,6 +32,24 @@ export default function AmbassadorPage({ onNavigate, onOpenRegisterModal }) {
   const [showForm, setShowForm] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const formRef = useRef(null);
+
+  useEffect(() => {
+    const prevTitle = document.title;
+    document.title = "Become a USMLE Horizon Ambassador | The USMLE Horizon";
+    
+    const canonicalLink = document.querySelector("link[rel='canonical']");
+    const prevCanonical = canonicalLink ? canonicalLink.getAttribute("href") : "https://usmle-horizon.vercel.app/";
+    if (canonicalLink) {
+      canonicalLink.setAttribute("href", "https://usmle-horizon.vercel.app/ambassador");
+    }
+
+    return () => {
+      document.title = prevTitle;
+      if (canonicalLink) {
+        canonicalLink.setAttribute("href", prevCanonical);
+      }
+    };
+  }, []);
 
   const [formData, setFormData] = useState({
     fullName: '',

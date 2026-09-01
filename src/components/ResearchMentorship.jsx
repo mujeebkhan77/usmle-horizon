@@ -12,12 +12,12 @@ export default function ResearchMentorship({ onOpenRegisterModal }) {
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="badge-gold inline-flex items-center gap-1.5">
             <Award className="w-3.5 h-3.5" />
-            <span>PubMed & Scopus Publication Program</span>
+            <span>Medical Research Mentorship</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading">
             Medical Research Mentorship <br />
-            <span className="text-gradient">From Scratch to Match</span>
+            <span className="text-gradient">From Scratch to Publication</span>
           </h2>
 
           <p className="text-slate-600 text-base leading-relaxed">
@@ -64,7 +64,7 @@ export default function ResearchMentorship({ onOpenRegisterModal }) {
         </div>
 
         {/* Mentorship Methodology Steps */}
-        <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200 mb-16 bg-white shadow-md">
+        <div id="how-mentors-to-publication" className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200 mb-16 bg-white shadow-md">
           <h3 className="text-2xl font-bold text-slate-900 font-heading text-center mb-10">
             How Dr. Abdullah Mentors You to Publication
           </h3>

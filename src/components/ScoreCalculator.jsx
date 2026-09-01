@@ -22,7 +22,7 @@ export default function ScoreCalculator({ onOpenRegisterModal }) {
   const passProbability = uworldPercent >= 60 ? 'HIGH PASS (95%+)' : uworldPercent >= 52 ? 'MODERATE PASS (80%)' : 'NEEDS REVISION';
 
   return (
-    <section className="py-16 relative bg-slate-50 border-t border-slate-200">
+    <section id="score-predictor" className="py-16 relative bg-slate-50 border-t border-slate-200">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="glass-panel p-8 sm:p-10 rounded-3xl border border-sky-200 bg-white shadow-xl relative overflow-hidden">

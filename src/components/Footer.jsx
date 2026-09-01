@@ -42,7 +42,7 @@ export default function Footer({ onNavigate, currentPath = '/' }) {
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <img src={SITE_INFO.logo} alt={SITE_INFO.name} className="w-9 h-9 rounded-full object-cover border border-sky-400" />
+              <img src={SITE_INFO.logo} alt="The USMLE Horizon logo" className="w-9 h-9 rounded-full object-cover border border-sky-400" />
               <span className="font-extrabold text-lg text-white font-heading">
                 THE USMLE <span className="text-sky-400">HORIZON</span>
               </span>

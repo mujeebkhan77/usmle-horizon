@@ -22,7 +22,7 @@ export const CONTACT_LINKS = {
   email: "theusmlehorizon@gmail.com",
   instagram: "https://www.instagram.com/invites/contact/?igsh=1wvlqx0530vzk&utm_content=nm2cg2n",
   facebook: "https://www.facebook.com/share/1FK75zXKUj",
-  linkedin: "https://www.linkedin.com/in/dr-abd-ullah-588a17330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+  linkedin: "https://www.linkedin.com/in/the-usmle-horizon-588a17330"
 };
 
 export const PROOF_IMAGES = [
@@ -37,19 +37,24 @@ export const PROOF_IMAGES = [
     category: "USMLE Prep"
   },
   {
-    url: "https://i.postimg.cc/Xqy7B3Hb/IMG-20250729-WA0027.jpg",
-    title: "Embase Opportunity",
+    url: "/research-opportunities/Embase_Journal.jpg",
+    title: "EMBASE Opportunity",
     category: "Research Mentorship"
   },
   {
-    url: "https://i.postimg.cc/8kqLKCVL/IMG-20250729-WA0029.jpg",
-    title: "Elsevier Scopus Opportunity",
-    category: "Match Mentorship"
+    url: "/research-opportunities/Annals_of_Med_and_Surg.jpg",
+    title: "Annals of Med & Surg",
+    category: "Journal Publication"
   },
   {
-    url: "https://i.postimg.cc/3wHLPB5C/Whats-App-Image-2025-07-29-at-22-19-43-acc37809.jpg",
-    title: "Fortune Journal Opportunity",
-    category: "iMD Resources"
+    url: "/research-opportunities/The_Lancet_Journal.jpg",
+    title: "The Lancet Journal",
+    category: "High Impact Journal"
+  },
+  {
+    url: "/research-opportunities/Cureus_Journal.jpg",
+    title: "Cureus Journal",
+    category: "PubMed Indexed"
   }
 ];
 
@@ -318,6 +323,10 @@ export const STEPWISE_PLANS = [
 ];
 
 export const FAQ_ITEMS = [
+  {
+    q: "Are both iMD Subscription and StepWiseMD Subscription available?",
+    a: "Yes! The USMLE Horizon offers both iMD Subscription (containing 50,000+ QBanks, videos, and multi-device access) and StepWiseMD Subscription (a simple, user-friendly QBank platform). Web Version access is available for both options across your devices."
+  },
   {
     q: "What is iMD Medical Resources and how does access work?",
     a: "iMD is the world's largest digital medical resource hub containing over 45,000+ to 50,000+ resources including updated QBanks (UWorld, Amboss, USMLE-Rx), high-yield video lectures, textbooks, and self-assessments. Once registered, you are sent activation credentials and step-by-step setup guides to use on Windows, Mac, iOS, or Android."

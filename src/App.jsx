@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import GlobalTextMarquee from './components/GlobalTextMarquee';
 import ImdResources from './components/ImdResources';
-import ResearchMentorship from './components/ResearchMentorship';
-import PubmedOpportunities from './components/PubmedOpportunities';
 import ExamTracks from './components/ExamTracks';
-import AmbassadorBannerCTA from './components/AmbassadorBannerCTA';
 import ScoreCalculator from './components/ScoreCalculator';
 import PricingRegistration from './components/PricingRegistration';
 import StepwisePricing from './components/StepwisePricing';
+import ResearchMentorship from './components/ResearchMentorship';
+import PubmedOpportunities from './components/PubmedOpportunities';
 import ClinicalRotations from './components/ClinicalRotations';
+import AmbassadorBannerCTA from './components/AmbassadorBannerCTA';
 import AmbassadorPage from './components/AmbassadorPage';
-import GlobalTextMarquee from './components/GlobalTextMarquee';
 import FaqSection from './components/FaqSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -20,22 +20,52 @@ import { CONTACT_LINKS } from './data/siteData';
 import { MessageSquare } from 'lucide-react';
 
 export default function App() {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const getInitialPath = () => {
+    if (typeof window === 'undefined') return '/';
+    if (window.location.pathname.startsWith('/ambassador') || window.location.hash === '#ambassador') {
+      return '/ambassador';
+    }
+    return '/';
+  };
+
+  const [currentPath, setCurrentPath] = useState(getInitialPath);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [selectedPlanName, setSelectedPlanName] = useState('VIP Premium Plan');
 
   useEffect(() => {
-    const handlePopState = () => {
-      setCurrentPath(window.location.pathname);
+    const handleLocationChange = () => {
+      if (window.location.pathname.startsWith('/ambassador') || window.location.hash === '#ambassador') {
+        setCurrentPath('/ambassador');
+      } else {
+        setCurrentPath('/');
+      }
     };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
   }, []);
 
   const navigate = (path) => {
-    window.history.pushState({}, '', path);
-    setCurrentPath(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (path === '/ambassador' || path === '#ambassador') {
+      window.history.pushState({}, '', '/ambassador');
+      setCurrentPath('/ambassador');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.history.pushState({}, '', path.startsWith('#') ? '/' + path : path);
+      setCurrentPath('/');
+      if (path.startsWith('#')) {
+        setTimeout(() => {
+          const el = document.querySelector(path);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
   };
 
   const handleOpenRegisterModal = (planName = 'VIP Premium Plan') => {
@@ -67,51 +97,51 @@ export default function App() {
       />
 
       <main>
-        {/* Hero Section */}
+        {/* 1. Hero Section — unchanged */}
         <Hero onOpenRegisterModal={() => handleOpenRegisterModal('VIP Premium Plan')} />
 
         {/* Global Continuous Text Marquee Visual */}
         <GlobalTextMarquee />
 
-        {/* iMD Medical Resources & QBank Hub */}
+        {/* 2. Medical Resources Intro & QBank Hub */}
         <ImdResources onOpenRegisterModal={() => handleOpenRegisterModal('iMD Basic Access')} />
 
-        {/* Medical Research Mentorship — From Scratch to Match */}
-        <ResearchMentorship onOpenRegisterModal={() => handleOpenRegisterModal('Research Mentorship Scratch to Match')} />
-
-        {/* PUBMED RESEARCH OPPORTUNITIES (Static Gallery) */}
-        <PubmedOpportunities />
-
-        {/* International Exam Prep Tracks */}
+        {/* 3. Global Medical Pathways Supported */}
         <ExamTracks onOpenRegisterModal={() => handleOpenRegisterModal('USMLE Tutoring Prep')} />
 
-        {/* Compact Eye-Catching Ambassador CTA Banner */}
-        <AmbassadorBannerCTA onNavigate={navigate} />
-
-        {/* Score Predictor Calculator */}
+        {/* 4. Interactive Student Utility (USMLE Pass & Target Score Predictor) */}
         <ScoreCalculator onOpenRegisterModal={() => handleOpenRegisterModal('VIP Premium Plan')} />
 
-        {/* Pricing & VIP Registration Plans (iMD) */}
+        {/* 5. iMD Subscription & Access Duration */}
         <PricingRegistration 
           isModalOpen={isRegisterModalOpen} 
           onCloseModal={handleCloseRegisterModal}
           selectedPlanName={selectedPlanName}
         />
 
-        {/* StepWiseMD Plan & Duration */}
+        {/* 6. StepWiseMD Subscription */}
         <StepwisePricing 
           onOpenRegisterModal={(planName) => handleOpenRegisterModal(planName)}
         />
 
-        {/* Global Clinical Rotations */}
+        {/* 7 & 8. Medical Research Mentorship & How Dr. Abdullah Mentors You */}
+        <ResearchMentorship onOpenRegisterModal={() => handleOpenRegisterModal('Research Mentorship Scratch to Match')} />
+
+        {/* 9. Medical Research OPPURTUNITIES */}
+        <PubmedOpportunities />
+
+        {/* 10, 11 & 12. US Clinical Rotations, Why Choose Us & Visa Assistance */}
         <ClinicalRotations 
           onOpenRegisterModal={(planName) => handleOpenRegisterModal(planName)}
         />
 
-        {/* FAQ Section */}
+        {/* 13. Compact Homepage Ambassador CTA Banner */}
+        <AmbassadorBannerCTA onNavigate={navigate} />
+
+        {/* 14. Frequently Asked Questions (FAQ) */}
         <FaqSection />
 
-        {/* Contact Channels */}
+        {/* 15 & 16. Connect with Abdullah & Team (Contact Channels) */}
         <ContactSection />
       </main>
 
