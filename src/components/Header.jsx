@@ -155,9 +155,12 @@ export default function Header({ onOpenRegisterModal, onNavigate, currentPath = 
             </div>
 
             {/* 3-Dots Quick-Access Menu Button */}
-            <div className="relative">
+            <div className="relative z-50">
               <button 
-                onClick={() => setQuickAccessOpen(!quickAccessOpen)}
+                onClick={() => {
+                  setQuickAccessOpen(!quickAccessOpen);
+                  if (!quickAccessOpen) setMobileMenuOpen(false);
+                }}
                 className={`p-2.5 rounded-full border transition flex items-center justify-center ${
                   quickAccessOpen 
                     ? 'bg-sky-600 text-white border-sky-600 shadow-md' 
@@ -172,7 +175,7 @@ export default function Header({ onOpenRegisterModal, onNavigate, currentPath = 
               {/* 3-Dots Dropdown Menu */}
               {quickAccessOpen && (
                 <div 
-                  className="absolute right-0 mt-3 w-56 bg-white rounded-2xl border border-slate-200 shadow-2xl py-2 px-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+                  className="absolute right-0 mt-3 w-56 max-w-[85vw] bg-white rounded-2xl border border-slate-200 shadow-2xl py-2 px-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200"
                 >
                   <div className="px-3 py-1.5 border-b border-slate-100 mb-1 flex items-center justify-between">
                     <span className="text-[11px] font-black text-slate-900 font-heading uppercase tracking-wider">Quick Access</span>
@@ -198,7 +201,10 @@ export default function Header({ onOpenRegisterModal, onNavigate, currentPath = 
 
             {/* Mobile Menu Hamburger Button */}
             <button 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() => {
+                setMobileMenuOpen(!mobileMenuOpen);
+                if (!mobileMenuOpen) setQuickAccessOpen(false);
+              }}
               className="lg:hidden p-2 text-slate-700 hover:text-slate-900 rounded-lg bg-white border border-slate-200 shadow-sm"
               aria-label="Toggle mobile menu"
             >

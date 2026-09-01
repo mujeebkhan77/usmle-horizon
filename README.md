@@ -11,7 +11,7 @@ The platform brings together **premium medical resources, USMLE preparation tool
 ## 🌐 Live Website
 
 **The USMLE Horizon:**
-https://usmle-horizon.vercel.app/
+https://the-usmle-horizon.vercel.app/
 
 ---
 

@@ -38,9 +38,9 @@ export default function AmbassadorPage({ onNavigate, onOpenRegisterModal }) {
     document.title = "Become a USMLE Horizon Ambassador | The USMLE Horizon";
     
     const canonicalLink = document.querySelector("link[rel='canonical']");
-    const prevCanonical = canonicalLink ? canonicalLink.getAttribute("href") : "https://usmle-horizon.vercel.app/";
+    const prevCanonical = canonicalLink ? canonicalLink.getAttribute("href") : "https://the-usmle-horizon.vercel.app/";
     if (canonicalLink) {
-      canonicalLink.setAttribute("href", "https://usmle-horizon.vercel.app/ambassador");
+      canonicalLink.setAttribute("href", "https://the-usmle-horizon.vercel.app/ambassador");
     }
 
     return () => {

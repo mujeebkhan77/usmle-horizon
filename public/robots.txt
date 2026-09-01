@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://usmle-horizon.vercel.app
+Host: https://the-usmle-horizon.vercel.app
 
 # Sitemaps
-Sitemap: https://usmle-horizon.vercel.app/sitemap.xml
+Sitemap: https://the-usmle-horizon.vercel.app/sitemap.xml
