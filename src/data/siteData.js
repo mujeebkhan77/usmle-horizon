@@ -165,7 +165,7 @@ export const IMD_RESOURCES_LIST = [
     popular: true
   },
   {
-    name: "MplusX",
+    name: "MPlusX",
     category: "QBank & Clinical",
     exam: "AMC (Australia)",
     description: "Comprehensive AMC MCQ and clinical exam preparation platform with high-yield case studies.",

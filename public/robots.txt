@@ -2,8 +2,5 @@
 User-agent: *
 Allow: /
 
-# Host
-Host: https://the-usmle-horizon.vercel.app
-
 # Sitemaps
 Sitemap: https://the-usmle-horizon.vercel.app/sitemap.xml
