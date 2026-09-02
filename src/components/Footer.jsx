@@ -8,18 +8,19 @@ export default function Footer({ onNavigate, currentPath = '/' }) {
   };
 
   const handleLinkClick = (e, href, isAmbassador = false) => {
-    if (isAmbassador) {
+    if (isAmbassador || href === '/ambassador') {
       e.preventDefault();
-      if (onNavigate) {
-        onNavigate('/ambassador');
-      } else {
-        window.history.pushState({}, '', '/ambassador');
-        window.dispatchEvent(new Event('popstate'));
-      }
+      if (onNavigate) onNavigate('/ambassador');
       return;
     }
 
-    if (currentPath === '/ambassador') {
+    if (href === '/usmle-resources' || href === '/medical-research' || href === '/us-clinical-rotations') {
+      e.preventDefault();
+      if (onNavigate) onNavigate(href);
+      return;
+    }
+
+    if (currentPath !== '/') {
       e.preventDefault();
       if (onNavigate) {
         onNavigate('/');
@@ -61,6 +62,9 @@ export default function Footer({ onNavigate, currentPath = '/' }) {
               <li><a href="#exams" onClick={(e) => handleLinkClick(e, '#exams')} className="hover:text-sky-400 transition">USMLE / PLAB / AMC Exam Prep</a></li>
               <li><a href="#clinical-rotations" onClick={(e) => handleLinkClick(e, '#clinical-rotations')} className="hover:text-sky-400 transition">Global Clinical Rotations</a></li>
               <li><a href="#pricing" onClick={(e) => handleLinkClick(e, '#pricing')} className="hover:text-sky-400 transition">VIP Access & Plans</a></li>
+              <li><a href="/usmle-resources" onClick={(e) => handleLinkClick(e, '/usmle-resources')} className="hover:text-sky-400 transition">USMLE Resources Guide</a></li>
+              <li><a href="/medical-research" onClick={(e) => handleLinkClick(e, '/medical-research')} className="hover:text-sky-400 transition">Medical Research Guide</a></li>
+              <li><a href="/us-clinical-rotations" onClick={(e) => handleLinkClick(e, '/us-clinical-rotations')} className="hover:text-sky-400 transition">US Clinical Rotations Guide</a></li>
               <li><a href="/ambassador" onClick={(e) => handleLinkClick(e, '/ambassador', true)} className="hover:text-sky-400 transition text-sky-400 font-bold">Become an Ambassador</a></li>
             </ul>
           </div>

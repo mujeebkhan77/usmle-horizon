@@ -12,6 +12,9 @@ import PubmedOpportunities from './components/PubmedOpportunities';
 import ClinicalRotations from './components/ClinicalRotations';
 import AmbassadorBannerCTA from './components/AmbassadorBannerCTA';
 import AmbassadorPage from './components/AmbassadorPage';
+import UsmleResourcesPage from './components/UsmleResourcesPage';
+import MedicalResearchPage from './components/MedicalResearchPage';
+import ClinicalRotationsPage from './components/ClinicalRotationsPage';
 import FaqSection from './components/FaqSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -22,9 +25,13 @@ import { MessageSquare } from 'lucide-react';
 export default function App() {
   const getInitialPath = () => {
     if (typeof window === 'undefined') return '/';
-    if (window.location.pathname.startsWith('/ambassador') || window.location.hash === '#ambassador') {
-      return '/ambassador';
-    }
+    const path = window.location.pathname;
+    const hash = window.location.hash;
+
+    if (path.startsWith('/ambassador') || hash === '#ambassador') return '/ambassador';
+    if (path.startsWith('/usmle-resources') || hash === '#usmle-resources-page') return '/usmle-resources';
+    if (path.startsWith('/medical-research') || hash === '#medical-research-page') return '/medical-research';
+    if (path.startsWith('/us-clinical-rotations') || hash === '#us-clinical-rotations-page') return '/us-clinical-rotations';
     return '/';
   };
 
@@ -34,8 +41,17 @@ export default function App() {
 
   useEffect(() => {
     const handleLocationChange = () => {
-      if (window.location.pathname.startsWith('/ambassador') || window.location.hash === '#ambassador') {
+      const path = window.location.pathname;
+      const hash = window.location.hash;
+
+      if (path.startsWith('/ambassador') || hash === '#ambassador') {
         setCurrentPath('/ambassador');
+      } else if (path.startsWith('/usmle-resources') || hash === '#usmle-resources-page') {
+        setCurrentPath('/usmle-resources');
+      } else if (path.startsWith('/medical-research') || hash === '#medical-research-page') {
+        setCurrentPath('/medical-research');
+      } else if (path.startsWith('/us-clinical-rotations') || hash === '#us-clinical-rotations-page') {
+        setCurrentPath('/us-clinical-rotations');
       } else {
         setCurrentPath('/');
       }
@@ -50,9 +66,18 @@ export default function App() {
   }, []);
 
   const navigate = (path) => {
-    if (path === '/ambassador' || path === '#ambassador') {
-      window.history.pushState({}, '', '/ambassador');
-      setCurrentPath('/ambassador');
+    const customRoutes = {
+      '/ambassador': '/ambassador',
+      '#ambassador': '/ambassador',
+      '/usmle-resources': '/usmle-resources',
+      '/medical-research': '/medical-research',
+      '/us-clinical-rotations': '/us-clinical-rotations'
+    };
+
+    if (customRoutes[path]) {
+      const targetRoute = customRoutes[path];
+      window.history.pushState({}, '', targetRoute);
+      setCurrentPath(targetRoute);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       window.history.pushState({}, '', path.startsWith('#') ? '/' + path : path);
@@ -79,18 +104,45 @@ export default function App() {
 
   if (currentPath === '/ambassador') {
     return (
-      <AmbassadorPage 
+      <AmbassadorPage
         onNavigate={navigate}
         onOpenRegisterModal={() => handleOpenRegisterModal('VIP Premium Plan')}
       />
     );
   }
 
+  if (currentPath === '/usmle-resources') {
+    return (
+      <UsmleResourcesPage
+        onNavigate={navigate}
+        onOpenRegisterModal={(planName) => handleOpenRegisterModal(planName)}
+      />
+    );
+  }
+
+  if (currentPath === '/medical-research') {
+    return (
+      <MedicalResearchPage
+        onNavigate={navigate}
+        onOpenRegisterModal={(planName) => handleOpenRegisterModal(planName)}
+      />
+    );
+  }
+
+  if (currentPath === '/us-clinical-rotations') {
+    return (
+      <ClinicalRotationsPage
+        onNavigate={navigate}
+        onOpenRegisterModal={(planName) => handleOpenRegisterModal(planName)}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-white">
-      
+
       {/* Sticky Header */}
-      <Header 
+      <Header
         onOpenRegisterModal={() => handleOpenRegisterModal('VIP Premium Plan')}
         onNavigate={navigate}
         currentPath={currentPath}
@@ -113,14 +165,14 @@ export default function App() {
         <ScoreCalculator onOpenRegisterModal={() => handleOpenRegisterModal('VIP Premium Plan')} />
 
         {/* 5. iMD Subscription & Access Duration */}
-        <PricingRegistration 
-          isModalOpen={isRegisterModalOpen} 
+        <PricingRegistration
+          isModalOpen={isRegisterModalOpen}
           onCloseModal={handleCloseRegisterModal}
           selectedPlanName={selectedPlanName}
         />
 
         {/* 6. StepWiseMD Subscription */}
-        <StepwisePricing 
+        <StepwisePricing
           onOpenRegisterModal={(planName) => handleOpenRegisterModal(planName)}
         />
 
@@ -131,7 +183,7 @@ export default function App() {
         <PubmedOpportunities />
 
         {/* 10, 11 & 12. US Clinical Rotations, Why Choose Us & Visa Assistance */}
-        <ClinicalRotations 
+        <ClinicalRotations
           onOpenRegisterModal={(planName) => handleOpenRegisterModal(planName)}
         />
 
