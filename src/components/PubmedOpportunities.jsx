@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PROOF_IMAGES } from '../data/siteData';
-import { BookOpen, X } from 'lucide-react';
+import { BookOpen, X, MessageCircle } from 'lucide-react';
 
 export default function PubmedOpportunities() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -15,8 +15,24 @@ export default function PubmedOpportunities() {
     "Main author & the coordinators will guide you throughout the whole process till they are published."
   ];
 
+  const researchWhatsAppText = `*Provide your credentials for the Research Paper Participation*
+
+Research Paper Title:
+Required position:
+Name*:
+Designation*:
+Department*:
+Hospital name/college name*:
+City name*:
+Email address*:
+What'sApp no*:
+
+*If you are not doing job currently plz mention MBBS/MD college name to add in paper.*`;
+
+  const researchWhatsAppLink = `https://wa.me/923414517833?text=${encodeURIComponent(researchWhatsAppText)}`;
+
   return (
-    <section id="pubmed-opportunities" className="py-16 relative bg-slate-50 border-t border-b border-slate-100">
+    <section id="pubmed-opportunities" className="py-16 relative overflow-hidden bg-slate-50 border-t border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Simple Visual Title Header */}
@@ -68,6 +84,30 @@ export default function PubmedOpportunities() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Research Paper Participation WhatsApp CTA */}
+        <div className="mt-12 text-center max-w-2xl mx-auto p-6 sm:p-8 rounded-3xl bg-white border-2 border-emerald-300 shadow-md space-y-4">
+          <div className="space-y-1.5">
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900 font-heading">
+              Participate in a Research Paper
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+              Interested in joining one of our ongoing research papers? Send your details directly on WhatsApp.
+            </p>
+          </div>
+
+          <div className="pt-2 flex justify-center">
+            <a
+              href={researchWhatsAppLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp py-3 px-6 text-sm font-bold inline-flex items-center gap-2 shadow-lg shadow-emerald-600/20 hover:scale-105 transition transform"
+            >
+              <MessageCircle className="w-5 h-5 fill-current" />
+              <span>Participate in a Research Paper</span>
+            </a>
+          </div>
         </div>
 
       </div>

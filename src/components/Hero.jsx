@@ -17,7 +17,7 @@ export default function Hero({ onOpenRegisterModal }) {
       <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-transparent to-slate-50/95 z-10 pointer-events-none" />
 
       {/* Subtle Soft Sky Ambient Glow */}
-      <div className="absolute top-10 left-10 w-[500px] h-[500px] bg-sky-200/20 rounded-full blur-[120px] pointer-events-none z-10" />
+      <div className="absolute top-10 left-10 w-72 h-72 sm:w-[500px] sm:h-[500px] max-w-full bg-sky-200/20 rounded-full blur-[120px] pointer-events-none z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
         <div className="space-y-6 max-w-4xl mx-auto">

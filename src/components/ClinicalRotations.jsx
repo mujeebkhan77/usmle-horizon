@@ -61,7 +61,7 @@ export default function ClinicalRotations({ onOpenRegisterModal }) {
   ];
 
   return (
-    <section id="clinical-rotations" className="py-24 relative bg-slate-50 border-t border-b border-slate-200 text-slate-900">
+    <section id="clinical-rotations" className="py-24 relative overflow-hidden bg-slate-50 border-t border-b border-slate-200 text-slate-900">
       
       {/* Background Soft Sky Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-sky-200/20 rounded-full blur-[130px] pointer-events-none z-0" />

@@ -157,7 +157,7 @@ ${formData.reason}`;
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-white relative">
+    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-white relative overflow-x-hidden">
       
       {/* Sticky Header with routing awareness */}
       <Header 
@@ -166,7 +166,7 @@ ${formData.reason}`;
         currentPath="/ambassador"
       />
 
-      <main className="pt-28 pb-20 bg-slate-50 text-slate-900 min-h-screen">
+      <main className="pt-28 pb-20 bg-slate-50 text-slate-900 min-h-screen relative overflow-hidden">
         
         {/* Soft Ambient Background Light */}
         <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-sky-200/20 rounded-full blur-[140px] pointer-events-none z-0" />

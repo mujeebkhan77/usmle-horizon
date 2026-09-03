@@ -4,7 +4,7 @@ import { MessageSquare, Send, Mail, Instagram, Linkedin, Facebook, Clock, ArrowU
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-24 relative bg-white border-t border-slate-200">
+    <section id="contact" className="py-24 relative overflow-hidden bg-white border-t border-slate-200">
       
       <div className="glow-orb glow-cyan bottom-0 right-0 w-[450px] h-[450px]" />
 
